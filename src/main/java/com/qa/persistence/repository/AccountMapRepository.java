@@ -14,7 +14,7 @@ public class AccountMapRepository implements AccountRepository{
 	public String getAllAccounts() {
 		String output = "";
 //		accounts.values().stream()
-		for (int i = 0; i < accounts.size(); i++) {
+		for (long i = 0; i < accounts.size(); i++) {
 			output += json.getJSONForObject(accounts.get(i));
 		}
 		return output;	
@@ -37,8 +37,14 @@ public class AccountMapRepository implements AccountRepository{
 		return null;
 	}
 
-	public Object countFirstName(String string) {
-		return null;
+	public Object countFirstName(String firstName) {
+		int count = 0;
+		for (long i = 0; i < accounts.size(); i++) {
+			if (accounts.size() > 0 && accounts.get(i).getFirstName().equals(firstName)) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 }

@@ -10,11 +10,13 @@ import com.qa.persistence.repository.AccountMapRepository;
 import com.qa.persistence.util.JSONUtil;
 
 public class AccountServiceTest {
-	AccountMapRepository repo = new AccountMapRepository();
-	JSONUtil json = new JSONUtil(); 
+	AccountMapRepository repo;
+	JSONUtil json;
 
 	@Before
 	public void setup() {
+		repo = new AccountMapRepository();
+		json = new JSONUtil();
 	}
 	
 	@Test
