@@ -11,7 +11,7 @@ import com.qa.persistence.util.JSONUtil;
 
 public class AccountServiceTest {
 	AccountMapRepository repo = new AccountMapRepository();
-	JSONUtil json = new JSONUtil();
+	JSONUtil json = new JSONUtil(); 
 
 	@Before
 	public void setup() {
@@ -81,6 +81,18 @@ public class AccountServiceTest {
 		repo.deleteAccount((long) mapSize - 2);
 		repo.deleteAccount((long) mapSize - 3);
 		assertEquals("Map size did not decrease by 2.", mapSize -2, repo.accounts.size());
+		
+	}
+	
+	@Test
+	public void testFirstNameCount() {
+		Account account1 = new Account("Tom", "Smith", 1234);
+		Account account2 = new Account("Jom", "Jmith", 1235);
+		Account account3 = new Account("Jom", "Zmith", 1236);
+		repo.createAccount(json.getJSONForObject(account1));
+		repo.createAccount(json.getJSONForObject(account2));
+		repo.createAccount(json.getJSONForObject(account3));
+		assertEquals("Incorrect number of Jom first names.", 2, repo.countFirstName("Jom"));
 		
 	}
 	

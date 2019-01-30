@@ -28,12 +28,16 @@ public class AccountMapRepository implements AccountRepository{
 
 	public String deleteAccount(Long id) {
 		accounts.remove(id);
-		return null; 
+		return null;  
 	}
 
 	public String updateAccount(Long id, String jsonString) {
 		Account account = json.getObjectForJSON(jsonString, Account.class);
 		accounts.replace(id, account);
+		return null;
+	}
+
+	public Object countFirstName(String string) {
 		return null;
 	}
 
