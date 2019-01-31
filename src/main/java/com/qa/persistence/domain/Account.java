@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Account {
 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	@Column(length = 20)
 	private String firstName;
 	@Column(length = 20)
@@ -50,6 +50,10 @@ public class Account {
 	
 	public String toString() {
 		return firstName + ", " + lastName + ", " + accountNumber + ". ";
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 }
